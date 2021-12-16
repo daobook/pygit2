@@ -19,41 +19,42 @@ msgstr ""
 
 #: ../../install.rst:3
 msgid "Installation"
-msgstr ""
+msgstr "安装"
 
 #: ../../install.rst:11
 msgid "Contents"
-msgstr ""
+msgstr "目录"
 
 #: ../../install.rst:14
 msgid "Quick install"
-msgstr ""
+msgstr "快速安装"
 
 #: ../../install.rst:16 ../../install.rst:213
 msgid "Install pygit2:"
-msgstr ""
+msgstr "安装 pygit2："
 
 #: ../../install.rst:24
 msgid "The line above will install binary wheels if available in your platform."
-msgstr ""
+msgstr "如果你的平台上有二进制轮子，上面这一行将安装二进制轮子。"
 
 #: ../../install.rst:28
 msgid ""
 "Use pip 19.3 or later, otherwise the source package will be installed "
 "instead of the binary wheel."
 msgstr ""
+"使用 pip 19.3 或更高版本，否则将安装源码包而不是二进制轮子。"
 
 #: ../../install.rst:31
 msgid "To install the source package:"
-msgstr ""
+msgstr "要安装源码包"
 
 #: ../../install.rst:39
 msgid "Requirements"
-msgstr ""
+msgstr "需求"
 
 #: ../../install.rst:41
 msgid "Supported versions of Python:"
-msgstr ""
+msgstr "受支持的 Python 版本："
 
 #: ../../install.rst:43
 msgid "Python 3.7+"
@@ -65,7 +66,7 @@ msgstr ""
 
 #: ../../install.rst:46
 msgid "Python requirements (these are specified in ``setup.py``):"
-msgstr ""
+msgstr "Python 要求（这些要求在 ``setup.py`` 中指定）。"
 
 #: ../../install.rst:48
 msgid "cffi 1.4+"
@@ -80,22 +81,23 @@ msgid ""
 "Libgit2 **v1.3.x**; binary wheels already include libgit2, so you only "
 "need to worry about this if you install the source package"
 msgstr ""
+"Libgit2 **v1.3.x**；二进制轮子已经包括了 libgit2，所以你只需要在安装源码包时担心这个问题"
 
 #: ../../install.rst:54
 msgid "Optional libgit2 dependecies to support ssh and https:"
-msgstr ""
+msgstr "可选的 libgit2 依赖关系，以支持 ssh 和 https："
 
 #: ../../install.rst:56
 msgid "https: WinHTTP (Windows), SecureTransport (OS X) or OpenSSL."
-msgstr ""
+msgstr "https：WinHTTP（Windows），SecureTransport（OS X）或 OpenSSL。"
 
 #: ../../install.rst:57
 msgid "ssh: libssh2 1.9.0 or later, pkg-config"
-msgstr ""
+msgstr "ssh：libssh2 1.9.0 或更高版本，pkg-config"
 
 #: ../../install.rst:59
 msgid "To run the tests:"
-msgstr ""
+msgstr "要运行这些测试："
 
 #: ../../install.rst:61
 msgid "pytest"
@@ -103,13 +105,14 @@ msgstr ""
 
 #: ../../install.rst:64
 msgid "Version numbers"
-msgstr ""
+msgstr "版本号"
 
 #: ../../install.rst:66
 msgid ""
 "The version number of pygit2 is composed of three numbers separated by "
 "dots |lq| *major.medium.minor* |rq|:"
 msgstr ""
+"pygit2 的版本号由三个数字组成，用圆点隔开 |lq| *major.medium.minor* |rq|："
 
 #: ../../install.rst:69
 msgid "*major* will always be 1 (until we release 2.0 in a far undefined future)"

@@ -71,7 +71,7 @@ msgid ""
 "<https://github.com/sponsors/jdavid>`_."
 msgstr ""
 "在这里添加你的名字和链接，`成为赞助商 "
-"<https://github.com/sponsors/jdavid>`_"。
+"<https://github.com/sponsors/jdavid>`_。"
 
 #: ../../index.rst:28
 msgid "License: GPLv2 with linking exception"
