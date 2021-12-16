@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../objects.rst:3
+msgid "Objects"
+msgstr ""
+
+#: ../../objects.rst:5
+msgid ""
+"There are four types of Git objects: blobs, trees, commits and tags. For "
+"each one pygit2 has a type, and all four types inherit from the base "
+"``Object`` type."
+msgstr ""
+
+#: ../../objects.rst:12
+msgid "Contents"
+msgstr ""
+
+#: ../../objects.rst:15
+msgid "Object lookup"
+msgstr ""
+
+#: ../../objects.rst:17
+msgid ""
+"In the previous chapter we learnt about Object IDs. With an Oid we can "
+"ask the repository to get the associated object. To do that the "
+"``Repository`` class implementes a subset of the mapping interface."
+msgstr ""
+
+#: ../../objects.rst:51
+msgid "The Object base type"
+msgstr ""
+
+#: ../../objects.rst:53
+msgid ""
+"The Object type is a base type, it is not possible to make instances of "
+"it, in any way."
+msgstr ""
+
+#: ../../objects.rst:56
+msgid ""
+"It is the base type of the ``Blob``, ``Tree``, ``Commit`` and ``Tag`` "
+"types, so it is possible to check whether a Python value is an Object or "
+"not::"
+msgstr ""
+
+#: ../../objects.rst:64
+msgid "All Objects are immutable, they cannot be modified once they are created::"
+msgstr ""
+
+#: ../../objects.rst:71
+msgid ""
+"Derived types (blobs, trees, etc.) don't have a constructor, this means "
+"they cannot be created with the common idiom::"
+msgstr ""
+
+#: ../../objects.rst:80
+msgid "New objects are created using an specific API we will see later."
+msgstr ""
+
+#: ../../objects.rst:82
+msgid "This is the common interface for all Git objects:"
+msgstr ""
+
+#: ../../objects.rst:90
+msgid "Blobs"
+msgstr ""
+
+#: ../../objects.rst:92
+msgid ""
+"A blob is just a raw byte string. They are the Git equivalent to files in"
+" a filesytem."
+msgstr ""
+
+#: ../../objects.rst:95
+msgid "This is their API:"
+msgstr ""
+
+#: ../../objects.rst:102
+msgid "Creating blobs"
+msgstr ""
+
+#: ../../objects.rst:104
+msgid ""
+"There are a number of methods in the repository to create new blobs, and "
+"add them to the Git object database:"
+msgstr ""
+
+#: ../../objects.rst:120
+msgid ""
+"There are also some functions to calculate the id for a byte string "
+"without creating the blob object:"
+msgstr ""
+
+#: ../../objects.rst:128
+msgid "Trees"
+msgstr ""
+
+#: ../../objects.rst:130
+msgid ""
+"At the low level (libgit2) a tree is a sorted collection of tree entries."
+" In pygit2 accessing an entry directly returns the object."
+msgstr ""
+
+#: ../../objects.rst:133
+msgid ""
+"A tree can be iterated, and partially implements the sequence and mapping"
+" interfaces."
+msgstr ""
+
+#: ../../objects.rst:176
+msgid "Example::"
+msgstr ""
+
+#: ../../objects.rst:197
+msgid "Creating trees"
+msgstr ""
+
+#: ../../objects.rst:208
+msgid "Commits"
+msgstr ""
+
+#: ../../objects.rst:210
+msgid ""
+"A commit is a snapshot of the working dir with meta informations like "
+"author, committer and others."
+msgstr ""
+
+#: ../../objects.rst:218
+msgid "Signatures"
+msgstr ""
+
+#: ../../objects.rst:220
+msgid ""
+"The author and committer attributes of commit objects are ``Signature`` "
+"objects::"
+msgstr ""
+
+#: ../../objects.rst:226
+msgid "Signatures can be compared for (in)equality."
+msgstr ""
+
+#: ../../objects.rst:233
+msgid "Creating commits"
+msgstr ""
+
+#: ../../objects.rst:239
+msgid ""
+"Commits can be created by calling the ``create_commit`` method of the "
+"repository with the following parameters::"
+msgstr ""
+
+#: ../../objects.rst:255
+msgid "Tags"
+msgstr ""
+
+#: ../../objects.rst:257
+msgid "A tag is a static label for a commit. See references for more information."
+msgstr ""
+
+#: ../../objects.rst:264
+msgid "Creating tags"
+msgstr ""
+

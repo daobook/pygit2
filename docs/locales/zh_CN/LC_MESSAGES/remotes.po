@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../remotes.rst:3
+msgid "Remotes"
+msgstr ""
+
+#: ../../remotes.rst:7
+msgid ""
+"The collection of configured remotes, an instance of "
+":py:class:`pygit2.remote.RemoteCollection`"
+msgstr ""
+
+#: ../../remotes.rst:11
+msgid "The remote collection"
+msgstr ""
+
+#: ../../remotes.rst:17
+msgid "The Remote type"
+msgstr ""
+
+#: ../../remotes.rst:23
+msgid "The RemoteCallbacks type"
+msgstr ""
+
+#: ../../remotes.rst:29
+msgid "The TransferProgress type"
+msgstr ""
+
+#: ../../remotes.rst:31
+msgid "This class contains the data which is available to us during a fetch."
+msgstr ""
+
+#: ../../remotes.rst:37
+msgid "The Refspec type"
+msgstr ""
+
+#: ../../remotes.rst:39
+msgid ""
+"Refspecs objects are not constructed directly, but returned by "
+":meth:`pygit2.Remote.get_refspec`.  To create a new a refspec on a "
+"Remote, use :meth:`pygit2.Remote.add_fetch` or "
+":meth:`pygit2.Remote.add_push`."
+msgstr ""
+
+#: ../../remotes.rst:47
+msgid "Credentials"
+msgstr ""
+
+#: ../../remotes.rst:49
+msgid ""
+"There are several types of credentials. All of them are callable objects,"
+" with the appropriate signature for the credentials callback."
+msgstr ""
+
+#: ../../remotes.rst:52
+msgid ""
+"They will ignore all the arguments and return themselves. This is useful "
+"for scripts where the credentials are known ahead of time. More complete "
+"interfaces would want to look up in their keychain or ask the user for "
+"the data to use in the credentials."
+msgstr ""
+

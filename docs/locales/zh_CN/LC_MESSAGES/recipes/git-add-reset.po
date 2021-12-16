@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../recipes/git-add-reset.rst:3
+msgid "git-add / git-reset"
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:7
+msgid "Add file contents to the index / Stage"
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:9
+msgid "We can add a new (untracked) file or a modified file to the index."
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:23
+msgid "Restore the entry in the index / Unstage"
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:46
+msgid "Query the index state / Is file staged ?"
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:59
+msgid "References"
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:61
+msgid "git-add_."
+msgstr ""
+
+#: ../../recipes/git-add-reset.rst:65
+msgid "git-reset_."
+msgstr ""
+

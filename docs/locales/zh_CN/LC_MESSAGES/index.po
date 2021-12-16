@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../index.rst:3
+msgid "pygit2 - libgit2 bindings in Python"
+msgstr "pygit2 - 在 Python 中与 libgit2 绑定"
+
+#: ../../index.rst:5
+msgid ""
+"Bindings to the libgit2 shared library, implements Git plumbing. Supports"
+" Python 3.7+ and PyPy3 7.3+"
+msgstr ""
+"与 libgit2 共享库的绑定，实现了 Git 管道的功能。"
+"支持 Python 3.7+ 和 PyPy3 7.3+"
+
+#: ../../index.rst:9
+msgid "Links"
+msgstr "链接"
+
+#: ../../index.rst:11
+msgid "Documentation - http://www.pygit2.org/"
+msgstr "文档 - http://www.pygit2.org/"
+
+#: ../../index.rst:12
+msgid "Install - http://www.pygit2.org/install.html"
+msgstr "安装 - http://www.pygit2.org/install.html"
+
+#: ../../index.rst:13
+msgid "Download - https://pypi.python.org/pypi/pygit2"
+msgstr "下载 - https://pypi.python.org/pypi/pygit2"
+
+#: ../../index.rst:14
+msgid "Source code and issue tracker - https://github.com/libgit2/pygit2"
+msgstr "源代码和问题跟踪器 - https://github.com/libgit2/pygit2"
+
+#: ../../index.rst:15
+msgid "Changelog - https://github.com/libgit2/pygit2/blob/master/CHANGELOG.rst"
+msgstr "变更日志 - https://github.com/libgit2/pygit2/blob/master/CHANGELOG.rst"
+
+#: ../../index.rst:16
+msgid "Authors - https://github.com/libgit2/pygit2/blob/master/AUTHORS.rst"
+msgstr "作者 - https://github.com/libgit2/pygit2/blob/master/AUTHORS.rst"
+
+#: ../../index.rst:20
+msgid "Sponsors"
+msgstr "赞助者"
+
+#: ../../index.rst:22
+msgid "`Iterative <https://iterative.ai/>`_"
+msgstr ""
+
+#: ../../index.rst:24
+msgid ""
+"Add your name and link here, `become a sponsor "
+"<https://github.com/sponsors/jdavid>`_."
+msgstr ""
+"在这里添加你的名字和链接，`成为赞助商 "
+"<https://github.com/sponsors/jdavid>`_"。
+
+#: ../../index.rst:28
+msgid "License: GPLv2 with linking exception"
+msgstr ""
+
+#: ../../index.rst:30
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License, version 2, as "
+"published by the Free Software Foundation."
+msgstr ""
+
+#: ../../index.rst:34
+msgid ""
+"In addition to the permissions in the GNU General Public License, the "
+"authors give you unlimited permission to link the compiled version of "
+"this file into combinations with other programs, and to distribute those "
+"combinations without any restriction coming from the use of this file.  "
+"(The General Public License restrictions do apply in other respects; for "
+"example, they cover modification of the file, and distribution when not "
+"linked into a combined executable.)"
+msgstr ""
+
+#: ../../index.rst:43
+msgid ""
+"This program is distributed in the hope that it will be useful, but "
+"WITHOUT ANY WARRANTY; without even the implied warranty of "
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General"
+" Public License for more details."
+msgstr ""
+
+#: ../../index.rst:48
+msgid ""
+"You should have received a copy of the GNU General Public License along "
+"with this program; see the file COPYING.  If not, write to the Free "
+"Software Foundation, 51 Franklin Street, Fifth Floor, Boston, MA "
+"02110-1301, USA."
+msgstr ""
+
+#: ../../index.rst:55
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../index.rst:88
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../index.rst:90
+msgid ":ref:`genindex`"
+msgstr ""
+

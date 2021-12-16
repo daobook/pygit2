@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../diff.rst:3
+msgid "Diff"
+msgstr ""
+
+#: ../../diff.rst:5
+msgid "目录"
+msgstr ""
+
+#: ../../diff.rst:7
+msgid "A diff shows the changes between trees, an index or the working dir."
+msgstr ""
+
+#: ../../diff.rst:11
+msgid "Examples"
+msgstr ""
+
+#: ../../diff.rst:39
+msgid "The Diff type"
+msgstr ""
+
+#: ../../diff.rst:54
+msgid "The Patch type"
+msgstr ""
+
+#: ../../diff.rst:56
+msgid "Attributes:"
+msgstr ""
+
+#: ../../diff.rst:62
+msgid "The DiffDelta type"
+msgstr ""
+
+#: ../../diff.rst:68
+msgid "The DiffFile type"
+msgstr ""
+
+#: ../../diff.rst:74
+msgid "The DiffHunk type"
+msgstr ""
+
+#: ../../diff.rst:80
+msgid "The DiffStats type"
+msgstr ""
+
+#: ../../diff.rst:86
+msgid "The DiffLine type"
+msgstr ""
+

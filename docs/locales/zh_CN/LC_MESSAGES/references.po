@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../references.rst:3
+msgid "References"
+msgstr ""
+
+#: ../../references.rst:20 ../../references.rst:44 ../../references.rst:97
+msgid "Example::"
+msgstr ""
+
+#: ../../references.rst:38
+msgid "Functions"
+msgstr ""
+
+#: ../../references.rst:42
+msgid "Check if the passed string is a valid reference name."
+msgstr ""
+
+#: ../../references.rst:56
+msgid "The Reference type"
+msgstr ""
+
+#: ../../references.rst:83
+msgid "The HEAD"
+msgstr ""
+
+#: ../../references.rst:85
+msgid "Example. These two lines are equivalent::"
+msgstr ""
+
+#: ../../references.rst:95
+msgid "The reference log"
+msgstr ""
+
+#: ../../references.rst:109
+msgid "Notes"
+msgstr ""
+
+#: ../../references.rst:117
+msgid "The Note type"
+msgstr ""
+

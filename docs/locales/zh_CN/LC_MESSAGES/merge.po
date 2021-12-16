@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../merge.rst:3
+msgid "Merge & Cherrypick"
+msgstr ""
+
+#: ../../merge.rst:5
+msgid "目录"
+msgstr ""
+
+#: ../../merge.rst:12
+msgid "The merge method"
+msgstr ""
+
+#: ../../merge.rst:14
+msgid ""
+"The method does a merge over the current working copy. It gets an Oid "
+"object as a parameter."
+msgstr ""
+
+#: ../../merge.rst:17
+msgid ""
+"As its name says, it only does the merge, does not commit nor update the "
+"branch reference in the case of a fastforward."
+msgstr ""
+
+#: ../../merge.rst:20
+msgid ""
+"For the moment, the merge does not support options, it will perform the "
+"merge with the default ones defined in GIT_MERGE_OPTS_INIT libgit2 "
+"constant."
+msgstr ""
+
+#: ../../merge.rst:23
+msgid "Example::"
+msgstr ""
+
+#: ../../merge.rst:28
+msgid ""
+"You can now inspect the index file for conflicts and get back to the user"
+" to resolve if there are. Once there are no conflicts left, you can "
+"create a commit with these two parents."
+msgstr ""
+
+#: ../../merge.rst:40
+msgid "Cherrypick"
+msgstr ""
+
+#: ../../merge.rst:44
+msgid ""
+"Note that after a successful cherrypick you have to run "
+":py:meth:`.Repository.state_cleanup` in order to get the repository out "
+"of cherrypicking mode."
+msgstr ""
+
+#: ../../merge.rst:50
+msgid "Lower-level methods"
+msgstr ""
+
+#: ../../merge.rst:52
+msgid ""
+"These methods allow more direct control over how to perform the merging. "
+"They do not modify the working directory and return an in-memory Index "
+"representing the result of the merge."
+msgstr ""
+
+#: ../../merge.rst:61
+msgid "N-way merges"
+msgstr ""
+
+#: ../../merge.rst:63
+msgid ""
+"The following methods perform the calculation for a base to an n-way "
+"merge."
+msgstr ""
+
+#: ../../merge.rst:68
+msgid ""
+"With this base at hand one can do repeated invokations of "
+":py:meth:`.Repository.merge_commits` and "
+":py:meth:`.Repository.merge_trees` to perform the actual merge into one "
+"tree (and deal with conflicts along the way)."
+msgstr ""
+

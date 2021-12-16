@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../oid.rst:3
+msgid "Object IDs"
+msgstr ""
+
+#: ../../oid.rst:5
+msgid ""
+"In the first place Git is a key-value storage system. The keys are called"
+" OIDs, for Object ID, and the  values stored are called Objects."
+msgstr ""
+
+#: ../../oid.rst:10
+msgid "Contents"
+msgstr ""
+
+#: ../../oid.rst:13
+msgid "The three forms of an object id"
+msgstr ""
+
+#: ../../oid.rst:15
+msgid ""
+"The oid is the `SHA-1 <http://en.wikipedia.org/wiki/SHA-1>`_ hash of an "
+"object. It is 20 bytes long."
+msgstr ""
+
+#: ../../oid.rst:18
+msgid "These are the three forms of an oid in pygit2:"
+msgstr ""
+
+#: ../../oid.rst:22
+msgid "Raw oid"
+msgstr ""
+
+#: ../../oid.rst:21
+msgid ""
+"A raw oid is represented as a Python byte string of 20 bytes length. This"
+" form can only be used to create an Oid object."
+msgstr ""
+
+#: ../../oid.rst:27
+msgid "Hex oid"
+msgstr ""
+
+#: ../../oid.rst:25
+msgid ""
+"A hex oid is represented as a Python string of 40 hexadecimal chars.  "
+"This form can be used to create Oid objects, just like raw oids. Also, "
+"the pygit2 API directly accepts hex oids everywhere."
+msgstr ""
+
+#: ../../oid.rst:35
+msgid "Oid object"
+msgstr ""
+
+#: ../../oid.rst:30
+msgid ""
+"An ``Oid`` object can be built from the raw or hexadecimal "
+"representations (see below). The pygit2 API always returns, and accepts, "
+"``Oid`` objects."
+msgstr ""
+
+#: ../../oid.rst:33
+msgid ""
+"This is the preferred way to represent an Oid, with the hexadecimal form "
+"being used for interaction with the user."
+msgstr ""
+
+#: ../../oid.rst:38
+msgid "The Oid type"
+msgstr ""
+
+#: ../../oid.rst:42
+msgid "The constructor expects either a raw or a hex oid, but not both."
+msgstr ""
+
+#: ../../oid.rst:44
+msgid "An Oid object is created from the hexadecimal form this way::"
+msgstr ""
+
+#: ../../oid.rst:51
+msgid "An Oid object is created from the raw form this way::"
+msgstr ""
+
+#: ../../oid.rst:59
+msgid ""
+"And the other way around, from an Oid object we can get the hexadecimal "
+"and raw forms. You can use the built-in `str()` (or `unicode()` in python"
+" 2) to get the hexadecimal representation of the Oid."
+msgstr ""
+
+#: ../../oid.rst:66
+msgid "The Oid type supports:"
+msgstr ""
+
+#: ../../oid.rst:68
+msgid ""
+"rich comparisons, not just for equality, also: lesser-than, lesser-or-"
+"equal, etc."
+msgstr ""
+
+#: ../../oid.rst:71
+msgid "hashing, so Oid objects can be used as keys in a dictionary."
+msgstr ""
+
+#: ../../oid.rst:75
+msgid "Constants"
+msgstr ""
+

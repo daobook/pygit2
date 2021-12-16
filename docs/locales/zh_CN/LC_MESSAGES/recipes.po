@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../recipes.rst:17
+msgid "git-cherry-pick (Apply the changes introduced by some existing commits.)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git-init (Create an empty git repository or reinitialize an existing one.)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git-log (Show commit logs.)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git-show (Show various types of objects.)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git-tag (Create, list, delete or verify a tag object signed with GPG.)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git clone --mirror (Clone with a mirroring configuration)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git clone username@hostname (Clone over ssh)"
+msgstr ""
+
+#: ../../recipes.rst:17
+msgid "git-add / git-reset HEAD (Add file contents to the index / Unstage)"
+msgstr ""
+
+#: ../../recipes.rst:3
+msgid "Recipes"
+msgstr ""
+
+#: ../../recipes.rst:5
+msgid ""
+"A list of some standard git commands and their pygit2 equivalents. This "
+"document is a work in progress, and is organized according to the `git "
+"man page`_."
+msgstr ""
+
+#: ../../recipes.rst:11
+msgid "High Level Commands"
+msgstr ""
+
+#: ../../recipes.rst:15
+msgid "Main porcelain commands"
+msgstr ""
+

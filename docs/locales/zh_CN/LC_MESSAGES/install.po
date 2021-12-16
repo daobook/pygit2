@@ -1,0 +1,410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../install.rst:3
+msgid "Installation"
+msgstr ""
+
+#: ../../install.rst:11
+msgid "Contents"
+msgstr ""
+
+#: ../../install.rst:14
+msgid "Quick install"
+msgstr ""
+
+#: ../../install.rst:16 ../../install.rst:213
+msgid "Install pygit2:"
+msgstr ""
+
+#: ../../install.rst:24
+msgid "The line above will install binary wheels if available in your platform."
+msgstr ""
+
+#: ../../install.rst:28
+msgid ""
+"Use pip 19.3 or later, otherwise the source package will be installed "
+"instead of the binary wheel."
+msgstr ""
+
+#: ../../install.rst:31
+msgid "To install the source package:"
+msgstr ""
+
+#: ../../install.rst:39
+msgid "Requirements"
+msgstr ""
+
+#: ../../install.rst:41
+msgid "Supported versions of Python:"
+msgstr ""
+
+#: ../../install.rst:43
+msgid "Python 3.7+"
+msgstr ""
+
+#: ../../install.rst:44
+msgid "PyPy3 7.3+"
+msgstr ""
+
+#: ../../install.rst:46
+msgid "Python requirements (these are specified in ``setup.py``):"
+msgstr ""
+
+#: ../../install.rst:48
+msgid "cffi 1.4+"
+msgstr ""
+
+#: ../../install.rst:49
+msgid "cached-property"
+msgstr ""
+
+#: ../../install.rst:51
+msgid ""
+"Libgit2 **v1.3.x**; binary wheels already include libgit2, so you only "
+"need to worry about this if you install the source package"
+msgstr ""
+
+#: ../../install.rst:54
+msgid "Optional libgit2 dependecies to support ssh and https:"
+msgstr ""
+
+#: ../../install.rst:56
+msgid "https: WinHTTP (Windows), SecureTransport (OS X) or OpenSSL."
+msgstr ""
+
+#: ../../install.rst:57
+msgid "ssh: libssh2 1.9.0 or later, pkg-config"
+msgstr ""
+
+#: ../../install.rst:59
+msgid "To run the tests:"
+msgstr ""
+
+#: ../../install.rst:61
+msgid "pytest"
+msgstr ""
+
+#: ../../install.rst:64
+msgid "Version numbers"
+msgstr ""
+
+#: ../../install.rst:66
+msgid ""
+"The version number of pygit2 is composed of three numbers separated by "
+"dots |lq| *major.medium.minor* |rq|:"
+msgstr ""
+
+#: ../../install.rst:69
+msgid "*major* will always be 1 (until we release 2.0 in a far undefined future)"
+msgstr ""
+
+#: ../../install.rst:70
+msgid ""
+"*medium* will increase whenever we make breaking changes, or add new "
+"features, or upgrade to new versions of libgit2."
+msgstr ""
+
+#: ../../install.rst:72
+msgid "*minor* will increase for bug fixes."
+msgstr ""
+
+#: ../../install.rst:74
+msgid ""
+"The table below summarizes the latest pygit2 versions with the supported "
+"versions of Python and the required libgit2 version."
+msgstr ""
+
+#: ../../install.rst:78
+msgid "pygit2"
+msgstr ""
+
+#: ../../install.rst:78
+msgid "Python"
+msgstr ""
+
+#: ../../install.rst:78
+msgid "libgit2"
+msgstr ""
+
+#: ../../install.rst:80
+msgid "1.7"
+msgstr ""
+
+#: ../../install.rst:80
+msgid "3.7 - 3.10"
+msgstr ""
+
+#: ../../install.rst:80
+msgid "1.3.x"
+msgstr ""
+
+#: ../../install.rst:82
+msgid "1.4 - 1.6"
+msgstr ""
+
+#: ../../install.rst:82
+msgid "3.6 - 3.9"
+msgstr ""
+
+#: ../../install.rst:82
+msgid "1.1.x"
+msgstr ""
+
+#: ../../install.rst:84
+msgid "1.2 - 1.3"
+msgstr ""
+
+#: ../../install.rst:84
+msgid "3.6 - 3.8"
+msgstr ""
+
+#: ../../install.rst:84
+msgid "1.0.x"
+msgstr ""
+
+#: ../../install.rst:86
+msgid "1.1"
+msgstr ""
+
+#: ../../install.rst:86 ../../install.rst:88
+msgid "3.5 - 3.8"
+msgstr ""
+
+#: ../../install.rst:86
+msgid "0.99.x, 1.0.x"
+msgstr ""
+
+#: ../../install.rst:88
+msgid "1.0"
+msgstr ""
+
+#: ../../install.rst:88 ../../install.rst:90
+msgid "0.28.x"
+msgstr ""
+
+#: ../../install.rst:90
+msgid "0.28.2"
+msgstr ""
+
+#: ../../install.rst:90
+msgid "2.7, 3.4 - 3.7"
+msgstr ""
+
+#: ../../install.rst:95
+msgid ""
+"It is recommended to use the latest 1.x.y release. Because only the "
+"latest is supported."
+msgstr ""
+
+#: ../../install.rst:100
+msgid ""
+"Backwards compatibility is not guaranteed in minor releases. Please check"
+" the release notes for incompatible changes before upgrading to a new "
+"release."
+msgstr ""
+
+#: ../../install.rst:105
+msgid "History: the 0.x series"
+msgstr ""
+
+#: ../../install.rst:107
+msgid ""
+"The development of pygit2 started in October 2010, the release of 1.0.0 "
+"happened in December 2019. In the 0.x series the version numbering was "
+"lockstep with libgit2, e.g. pygit2 0.28.x worked with libgit2 0.28.x"
+msgstr ""
+
+#: ../../install.rst:113
+msgid "Advanced"
+msgstr ""
+
+#: ../../install.rst:116
+msgid "Install libgit2 from source"
+msgstr ""
+
+#: ../../install.rst:118
+msgid ""
+"To install the latest version of libgit2 system wide, in the "
+"``/usr/local`` directory, do:"
+msgstr ""
+
+#: ../../install.rst:132
+msgid ""
+"For detailed instructions on building libgit2 check "
+"https://libgit2.github.com/docs/guides/build-and-link/"
+msgstr ""
+
+#: ../../install.rst:135
+msgid "Now install pygit2, and then verify it is correctly installed:"
+msgstr ""
+
+#: ../../install.rst:145
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../install.rst:147
+msgid ""
+"The verification step may fail if the dynamic linker does not find the "
+"libgit2 library:"
+msgstr ""
+
+#: ../../install.rst:159
+msgid ""
+"This happens for instance in Ubuntu, the libgit2 library is installed "
+"within the ``/usr/local/lib`` directory, but the linker does not look for"
+" it there. To fix this call ``ldconfig``:"
+msgstr ""
+
+#: ../../install.rst:168
+msgid ""
+"If it still does not work, please open an issue at "
+"https://github.com/libgit2/pygit2/issues"
+msgstr ""
+
+#: ../../install.rst:173
+msgid "Build options"
+msgstr ""
+
+#: ../../install.rst:175
+msgid ""
+"``LIBGIT2`` -- If you install libgit2 in an unusual place, you will need "
+"to set the ``LIBGIT2`` environment variable before installing pygit2.  "
+"This variable tells pygit2 where libgit2 is installed.  We will see a "
+"concrete example later, when explaining how to install libgit2 within a "
+"virtual environment."
+msgstr ""
+
+#: ../../install.rst:180
+msgid ""
+"``LIBGIT2_LIB`` -- This is a more rarely used build option, it allows to "
+"override the library directory where libgit2 is installed, useful if "
+"different from ``$LIBGIT2/lib`` and ``$LIBGIT2/lib64``."
+msgstr ""
+
+#: ../../install.rst:186
+msgid "libgit2 within a virtual environment"
+msgstr ""
+
+#: ../../install.rst:188
+msgid ""
+"This is how to install both libgit2 and pygit2 within a virtual "
+"environment."
+msgstr ""
+
+#: ../../install.rst:190
+msgid ""
+"This is useful if you don't have root acces to install libgit2 system "
+"wide. Or if you wish to have different versions of libgit2/pygit2 "
+"installed in different virtual environments, isolated from each other."
+msgstr ""
+
+#: ../../install.rst:194
+msgid ""
+"Create the virtualenv, activate it, and set the ``LIBGIT2`` environment "
+"variable:"
+msgstr ""
+
+#: ../../install.rst:203
+msgid "Install libgit2 (see we define the installation prefix):"
+msgstr ""
+
+#: ../../install.rst:224
+msgid "The run-path"
+msgstr ""
+
+#: ../../install.rst:226
+msgid ""
+"Did you notice we set the `rpath <http://en.wikipedia.org/wiki/Rpath>`_ "
+"before installing pygit2?  Since libgit2 is installed in a non standard "
+"location, the dynamic linker will not find it at run-time, and "
+"``lddconfig`` will not help this time."
+msgstr ""
+
+#: ../../install.rst:231
+msgid "So you need to either set ``LD_LIBRARY_PATH`` before using pygit2, like:"
+msgstr ""
+
+#: ../../install.rst:238
+msgid ""
+"Or, like we have done in the instructions above, use the `rpath "
+"<http://en.wikipedia.org/wiki/Rpath>`_, it hard-codes extra search paths "
+"within the pygit2 extension modules, so you don't need to set "
+"``LD_LIBRARY_PATH`` everytime. Verify yourself if curious:"
+msgstr ""
+
+#: ../../install.rst:250
+msgid "Installing on Windows"
+msgstr ""
+
+#: ../../install.rst:252
+msgid ""
+"`pygit2` for Windows is packaged into wheels and can be easily installed "
+"with `pip`:"
+msgstr ""
+
+#: ../../install.rst:259
+msgid ""
+"For development it is also possible to build `pygit2` with `libgit2` from"
+" sources. `libgit2` location is specified by the ``LIBGIT2`` environment "
+"variable.  The following recipe shows you how to do it from a bash shell:"
+msgstr ""
+
+#: ../../install.rst:272
+msgid ""
+"At this point, you're ready to execute the generic `pygit2` installation "
+"steps described at the start of this page."
+msgstr ""
+
+#: ../../install.rst:277
+msgid "Installing on OS X"
+msgstr ""
+
+#: ../../install.rst:279
+msgid ""
+"There are not binary wheels available for OS X, so you will need to "
+"install the source package."
+msgstr ""
+
+#: ../../install.rst:284
+msgid ""
+"You will need the `XCode <https://developer.apple.com/xcode/>`_ Developer"
+" Tools from Apple. This free download from the Mac App Store will provide"
+" the clang compiler needed for the installation of pygit2."
+msgstr ""
+
+#: ../../install.rst:288
+msgid ""
+"This section was tested on OS X 10.9 Mavericks and OS X 10.10 Yosemite "
+"with Python 3.3 in a virtual environment."
+msgstr ""
+
+#: ../../install.rst:291
+msgid ""
+"The easiest way is to first install libgit2 with the `Homebrew "
+"<http://brew.sh>`_ package manager and then use pip3 for pygit2. The "
+"following example assumes that XCode and Hombrew are already installed."
+msgstr ""
+
+#: ../../install.rst:301
+msgid ""
+"To build from a non-Homebrew libgit2 follow the guide in `libgit2 within "
+"a virtual environment`_."
+msgstr ""
+

@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../index_file.rst:3
+msgid "Index file & Working copy"
+msgstr ""
+
+#: ../../index_file.rst:7
+msgid "Index read::"
+msgstr ""
+
+#: ../../index_file.rst:14
+msgid "Iterate over all entries of the index::"
+msgstr ""
+
+#: ../../index_file.rst:19
+msgid "Index write::"
+msgstr ""
+
+#: ../../index_file.rst:27
+msgid "Custom entries::"
+msgstr ""
+
+#: ../../index_file.rst:29
+msgid ""
+"The index fulfills a dual role as the in-memory representation of the "
+"index file and data structure which represents a flat list of a tree. You"
+" can use it independently of the index file, e.g."
+msgstr ""
+
+#: ../../index_file.rst:38
+msgid "The Index type"
+msgstr ""
+
+#: ../../index_file.rst:44
+msgid "The IndexEntry type"
+msgstr ""
+
+#: ../../index_file.rst:55
+msgid "Status"
+msgstr ""
+
+#: ../../index_file.rst:71
+msgid "This is the list of status flags for a single file::"
+msgstr ""
+
+#: ../../index_file.rst:88
+msgid ""
+"A combination of these values will be returned to indicate the status of "
+"a file.  Status compares the working directory, the index, and the "
+"current HEAD of the repository.  The `GIT_STATUS_INDEX` set of flags "
+"represents the status of file in the index relative to the HEAD, and the "
+"`GIT_STATUS_WT` set of flags represent the status of the file in the "
+"working directory relative to the index."
+msgstr ""
+
+#: ../../index_file.rst:97
+msgid "Checkout"
+msgstr ""
+
+#: ../../index_file.rst:101
+msgid "Lower level API:"
+msgstr ""
+
+#: ../../index_file.rst:108
+msgid "Stash"
+msgstr ""
+

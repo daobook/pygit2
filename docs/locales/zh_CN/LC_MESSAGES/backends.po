@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../backends.rst:3
+msgid "Backends"
+msgstr ""
+
+#: ../../backends.rst:5
+msgid ""
+"The use of custom backends for the git object database (odb) and "
+"reference database (refdb) are supported by pygit2."
+msgstr ""
+
+#: ../../backends.rst:9
+msgid "Contents"
+msgstr ""
+
+#: ../../backends.rst:12
+msgid "The OdbBackend class"
+msgstr ""
+
+#: ../../backends.rst:14
+msgid ""
+"The OdbBackend class is subclassable and can be used to build a custom "
+"object database."
+msgstr ""
+
+#: ../../backends.rst:21
+msgid "Built-in OdbBackend implementations"
+msgstr ""
+
+#: ../../backends.rst:30
+msgid "The RefdbBackend class"
+msgstr ""
+
+#: ../../backends.rst:32
+msgid ""
+"The RefdbBackend class is subclassable and can be used to build a custom "
+"reference database."
+msgstr ""
+
+#: ../../backends.rst:39
+msgid "Built-in RefdbBackend implementations"
+msgstr ""
+

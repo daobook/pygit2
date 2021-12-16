@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../development.rst:3
+msgid "The development version"
+msgstr ""
+
+#: ../../development.rst:12
+msgid "Contents"
+msgstr ""
+
+#: ../../development.rst:15
+msgid "Unit tests"
+msgstr ""
+
+#: ../../development.rst:25
+msgid "Coding style: documentation strings"
+msgstr ""
+
+#: ../../development.rst:27
+msgid "Example::"
+msgstr ""
+
+#: ../../development.rst:50
+msgid "Building the docs"
+msgstr ""
+
+#: ../../development.rst:52
+msgid "To build the documentation first you need to install sphinx-rtd-theme::"
+msgstr ""
+
+#: ../../development.rst:56
+msgid "Then you have to build pygit2 inplace::"
+msgstr ""
+
+#: ../../development.rst:60
+msgid "And finally you can build the documentation::"
+msgstr ""
+
+#: ../../development.rst:66
+msgid "Running Valgrind"
+msgstr ""
+
+#: ../../development.rst:68
+msgid ""
+"Step 1. Build libc and libgit2 with debug symbols. See your distribution "
+"documentation."
+msgstr ""
+
+#: ../../development.rst:71
+msgid "Step 2. Build Python to be used with valgrind, e.g.::"
+msgstr ""
+
+#: ../../development.rst:78
+msgid "Step 3. Build pygit2 with debug symbols::"
+msgstr ""
+
+#: ../../development.rst:82
+msgid "Step 4. Install requirements::"
+msgstr ""
+
+#: ../../development.rst:87
+msgid "Step 4. Run valgrind::"
+msgstr ""
+

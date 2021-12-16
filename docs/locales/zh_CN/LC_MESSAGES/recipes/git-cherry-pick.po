@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2021 The pygit2 contributors
+# This file is distributed under the same license as the pygit2 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pygit2 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-16 14:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../recipes/git-cherry-pick.rst:3
+msgid "git-cherry-pick"
+msgstr ""
+
+#: ../../recipes/git-cherry-pick.rst:5
+msgid ""
+"The convenient way to cherry-pick a commit is to use "
+":py:meth:`.Repository.cherrypick()`. It is limited to cherry-picking with"
+" a working copy and on-disk index."
+msgstr ""
+
+#: ../../recipes/git-cherry-pick.rst:38
+msgid "Cherry-picking a commit without a working copy"
+msgstr ""
+
+#: ../../recipes/git-cherry-pick.rst:40
+msgid ""
+"This way of cherry-picking gives you more control over the process and "
+"works on bare repositories as well as repositories with a working copy. "
+":py:meth:`~.Repository.merge_trees()` can also be used for other tasks, "
+"for example `three-argument rebases`_."
+msgstr ""
+
+#: ../../recipes/git-cherry-pick.rst:69
+msgid "References"
+msgstr ""
+
+#: ../../recipes/git-cherry-pick.rst:71
+msgid "git-cherry-pick_."
+msgstr ""
+
