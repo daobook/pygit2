@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; pygit2 1.7.2 文档</title>
+  <title>安装 &mdash; pygit2 1.7.2 文档</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -39,10 +39,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#quick-install">Quick install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#version-numbers">Version numbers</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-install">快速安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-numbers">版本号</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#history-the-0-x-series">History: the 0.x series</a></li>
 </ul>
 </li>
@@ -97,7 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
+      <li>安装</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/install.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
@@ -108,13 +108,13 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="永久链接至标题"></a></h1>
+<h1>安装<a class="headerlink" href="#installation" title="永久链接至标题"></a></h1>
 <div class="contents local topic" id="contents">
-<p class="topic-title">Contents</p>
+<p class="topic-title">目录</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#quick-install" id="id2">Quick install</a></p></li>
-<li><p><a class="reference internal" href="#requirements" id="id3">Requirements</a></p></li>
-<li><p><a class="reference internal" href="#version-numbers" id="id4">Version numbers</a></p>
+<li><p><a class="reference internal" href="#quick-install" id="id2">快速安装</a></p></li>
+<li><p><a class="reference internal" href="#requirements" id="id3">需求</a></p></li>
+<li><p><a class="reference internal" href="#version-numbers" id="id4">版本号</a></p>
 <ul>
 <li><p><a class="reference internal" href="#history-the-0-x-series" id="id5">History: the 0.x series</a></p></li>
 </ul>
@@ -133,52 +133,49 @@
 </ul>
 </div>
 <section id="quick-install">
-<h2><a class="toc-backref" href="#id2">Quick install</a><a class="headerlink" href="#quick-install" title="永久链接至标题"></a></h2>
-<p>Install pygit2:</p>
+<h2><a class="toc-backref" href="#id2">快速安装</a><a class="headerlink" href="#quick-install" title="永久链接至标题"></a></h2>
+<p>安装 pygit2：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip --version
 pip <span class="m">21</span>.2.4 from /usr/lib/python3.9/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.9<span class="o">)</span>
 $ pip install pygit2
 </pre></div>
 </div>
-<p>The line above will install binary wheels if available in your platform.</p>
+<p>如果你的平台上有二进制轮子，上面这一行将安装二进制轮子。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>Use pip 19.3 or later, otherwise the source package will be installed
-instead of the binary wheel.</p>
+<p>使用 pip 19.3 或更高版本，否则将安装源码包而不是二进制轮子。</p>
 </div>
-<p>To install the source package:</p>
+<p>要安装源码包</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install pygit2 --no-binary
 </pre></div>
 </div>
 </section>
 <section id="requirements">
-<h2><a class="toc-backref" href="#id3">Requirements</a><a class="headerlink" href="#requirements" title="永久链接至标题"></a></h2>
-<p>Supported versions of Python:</p>
+<h2><a class="toc-backref" href="#id3">需求</a><a class="headerlink" href="#requirements" title="永久链接至标题"></a></h2>
+<p>受支持的 Python 版本：</p>
 <ul class="simple">
 <li><p>Python 3.7+</p></li>
 <li><p>PyPy3 7.3+</p></li>
 </ul>
-<p>Python requirements (these are specified in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>):</p>
+<p>Python 要求（这些要求在 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 中指定）。</p>
 <ul class="simple">
 <li><p>cffi 1.4+</p></li>
 <li><p>cached-property</p></li>
 </ul>
-<p>Libgit2 <strong>v1.3.x</strong>; binary wheels already include libgit2, so you only need to
-worry about this if you install the source package</p>
-<p>Optional libgit2 dependecies to support ssh and https:</p>
+<p>Libgit2 <strong>v1.3.x</strong>；二进制轮子已经包括了 libgit2，所以你只需要在安装源码包时担心这个问题</p>
+<p>可选的 libgit2 依赖关系，以支持 ssh 和 https：</p>
 <ul class="simple">
-<li><p>https: WinHTTP (Windows), SecureTransport (OS X) or OpenSSL.</p></li>
-<li><p>ssh: libssh2 1.9.0 or later, pkg-config</p></li>
+<li><p>https：WinHTTP（Windows），SecureTransport（OS X）或 OpenSSL。</p></li>
+<li><p>ssh：libssh2 1.9.0 或更高版本，pkg-config</p></li>
 </ul>
-<p>To run the tests:</p>
+<p>要运行这些测试：</p>
 <ul class="simple">
 <li><p>pytest</p></li>
 </ul>
 </section>
 <section id="version-numbers">
-<h2><a class="toc-backref" href="#id4">Version numbers</a><a class="headerlink" href="#version-numbers" title="永久链接至标题"></a></h2>
-<p>The version number of pygit2 is composed of three numbers separated by dots
-« <em>major.medium.minor</em> »:</p>
+<h2><a class="toc-backref" href="#id4">版本号</a><a class="headerlink" href="#version-numbers" title="永久链接至标题"></a></h2>
+<p>pygit2 的版本号由三个数字组成，用圆点隔开 « <em>major.medium.minor</em> »：</p>
 <ul class="simple">
 <li><p><em>major</em> will always be 1 (until we release 2.0 in a far undefined future)</p></li>
 <li><p><em>medium</em> will increase whenever we make breaking changes, or add new features, or
@@ -321,7 +318,7 @@ $ cmake . -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$LIBGIT
 $ cmake --build . --target install
 </pre></div>
 </div>
-<p>Install pygit2:</p>
+<p>安装 pygit2：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-Wl,-rpath,&#39;</span><span class="nv">$LIBGIT2</span><span class="s2">/lib&#39;,--enable-new-dtags </span><span class="nv">$LDFLAGS</span><span class="s2">&quot;</span>
 <span class="c1"># on OSX: export LDFLAGS=&quot;-Wl,-rpath,&#39;$LIBGIT2/lib&#39; $LDFLAGS&quot;</span>
 $ pip install pygit2
