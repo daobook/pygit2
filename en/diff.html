@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diff &mdash; pygit2 1.7.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feature detection" href="features.html" />
+    <link rel="prev" title="Configuration files" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pygit2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blame.html">Blame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit_log.html">Commit log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Diff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-diff-type">The Diff type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-patch-type">The Patch type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-diffdelta-type">The DiffDelta type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-difffile-type">The DiffFile type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-diffhunk-type">The DiffHunk type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-diffstats-type">The DiffStats type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-diffline-type">The DiffLine type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Feature detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_file.html">Index file &amp; Working copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mailmap.html">Mailmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">Merge &amp; Cherrypick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oid.html">Object IDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packing.html">Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remotes.html">Remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository.html">Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revparse.html">Revision parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submodule.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worktree.html">Worktrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">The development version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygit2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Diff</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/diff.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="diff">
+<h1><a class="toc-backref" href="#id1">Diff</a><a class="headerlink" href="#diff" title="Permalink to this headline"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#diff" id="id1">Diff</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-diff-type" id="id2">The Diff type</a></p></li>
+<li><p><a class="reference internal" href="#the-patch-type" id="id3">The Patch type</a></p></li>
+<li><p><a class="reference internal" href="#the-diffdelta-type" id="id4">The DiffDelta type</a></p></li>
+<li><p><a class="reference internal" href="#the-difffile-type" id="id5">The DiffFile type</a></p></li>
+<li><p><a class="reference internal" href="#the-diffhunk-type" id="id6">The DiffHunk type</a></p></li>
+<li><p><a class="reference internal" href="#the-diffstats-type" id="id7">The DiffStats type</a></p></li>
+<li><p><a class="reference internal" href="#the-diffline-type" id="id8">The DiffLine type</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>A diff shows the changes between trees, an index or the working dir.</p>
+<p>Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Changes between commits</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">revparse_single</span><span class="p">(</span><span class="s1">&#39;HEAD&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">revparse_single</span><span class="p">(</span><span class="s1">&#39;HEAD^&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repo</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t0</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>           <span class="c1"># equivalent</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repo</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;HEAD&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD^&#39;</span><span class="p">)</span> <span class="c1"># equivalent</span>
+
+<span class="c1"># Get all patches for a diff</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;HEAD^&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD~3&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">diff</span><span class="p">]</span>
+
+<span class="c1"># Get the stats for a diff</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="s1">&#39;HEAD^&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD~3&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">diff</span><span class="o">.</span><span class="n">stats</span>
+
+<span class="c1"># Diffing the empty tree</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">revparse_single</span><span class="p">(</span><span class="s1">&#39;HEAD&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tree</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tree</span><span class="o">.</span><span class="n">diff_to_tree</span><span class="p">()</span>
+
+<span class="c1"># Diff empty tree to a tree</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">revparse_single</span><span class="p">(</span><span class="s1">&#39;HEAD&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tree</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tree</span><span class="o">.</span><span class="n">diff_to_tree</span><span class="p">(</span><span class="n">swap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="the-diff-type">
+<h2><a class="toc-backref" href="#id2">The Diff type</a><a class="headerlink" href="#the-diff-type" title="Permalink to this headline"></a></h2>
+</section>
+<section id="the-patch-type">
+<h2><a class="toc-backref" href="#id3">The Patch type</a><a class="headerlink" href="#the-patch-type" title="Permalink to this headline"></a></h2>
+<p>Attributes:</p>
+</section>
+<section id="the-diffdelta-type">
+<h2><a class="toc-backref" href="#id4">The DiffDelta type</a><a class="headerlink" href="#the-diffdelta-type" title="Permalink to this headline"></a></h2>
+</section>
+<section id="the-difffile-type">
+<h2><a class="toc-backref" href="#id5">The DiffFile type</a><a class="headerlink" href="#the-difffile-type" title="Permalink to this headline"></a></h2>
+</section>
+<section id="the-diffhunk-type">
+<h2><a class="toc-backref" href="#id6">The DiffHunk type</a><a class="headerlink" href="#the-diffhunk-type" title="Permalink to this headline"></a></h2>
+</section>
+<section id="the-diffstats-type">
+<h2><a class="toc-backref" href="#id7">The DiffStats type</a><a class="headerlink" href="#the-diffstats-type" title="Permalink to this headline"></a></h2>
+</section>
+<section id="the-diffline-type">
+<h2><a class="toc-backref" href="#id8">The DiffLine type</a><a class="headerlink" href="#the-diffline-type" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="Configuration files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="features.html" class="btn btn-neutral float-right" title="Feature detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2010-2021 The pygit2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

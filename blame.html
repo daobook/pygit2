@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blame &mdash; pygit2 1.7.2 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Branches" href="branches.html" />
+    <link rel="prev" title="Backends" href="backends.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pygit2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Blame</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-blame-type">The Blame type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-blamehunk-type">The BlameHunk type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit_log.html">Commit log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diff.html">Diff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Feature detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_file.html">Index file &amp; Working copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mailmap.html">Mailmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">Merge &amp; Cherrypick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oid.html">Object IDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packing.html">Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remotes.html">Remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository.html">Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revparse.html">Revision parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submodule.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worktree.html">Worktrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">The development version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygit2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Blame</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/blame.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="blame">
+<h1><a class="toc-backref" href="#id2">Blame</a><a class="headerlink" href="#blame" title="永久链接至标题"></a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#blame" id="id2">Blame</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-blame-type" id="id3">The Blame type</a></p></li>
+<li><p><a class="reference internal" href="#the-blamehunk-type" id="id4">The BlameHunk type</a></p></li>
+<li><p><a class="reference internal" href="#constants" id="id5">Constants</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="the-blame-type">
+<h2><a class="toc-backref" href="#id3">The Blame type</a><a class="headerlink" href="#the-blame-type" title="永久链接至标题"></a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="Blame.__iter__">
+<span class="sig-prename descclassname"><span class="pre">Blame.</span></span><span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Blame.__iter__" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Blame.__len__">
+<span class="sig-prename descclassname"><span class="pre">Blame.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Blame.__len__" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Blame.__getitem__">
+<span class="sig-prename descclassname"><span class="pre">Blame.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Blame.__getitem__" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="the-blamehunk-type">
+<h2><a class="toc-backref" href="#id4">The BlameHunk type</a><a class="headerlink" href="#the-blamehunk-type" title="永久链接至标题"></a></h2>
+<p>Attributes:</p>
+<p>Getters:</p>
+</section>
+<section id="constants">
+<h2><a class="toc-backref" href="#id5">Constants</a><a class="headerlink" href="#constants" title="永久链接至标题"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_NORMAL">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_NORMAL</span></span><a class="headerlink" href="#GIT_BLAME_NORMAL" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_TRACK_COPIES_SAME_FILE">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_TRACK_COPIES_SAME_FILE</span></span><a class="headerlink" href="#GIT_BLAME_TRACK_COPIES_SAME_FILE" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES</span></span><a class="headerlink" href="#GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES</span></span><a class="headerlink" href="#GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES</span></span><a class="headerlink" href="#GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_FIRST_PARENT">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_FIRST_PARENT</span></span><a class="headerlink" href="#GIT_BLAME_FIRST_PARENT" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_USE_MAILMAP">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_USE_MAILMAP</span></span><a class="headerlink" href="#GIT_BLAME_USE_MAILMAP" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_BLAME_IGNORE_WHITESPACE">
+<span class="sig-name descname"><span class="pre">GIT_BLAME_IGNORE_WHITESPACE</span></span><a class="headerlink" href="#GIT_BLAME_IGNORE_WHITESPACE" title="永久链接至目标"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="backends.html" class="btn btn-neutral float-left" title="Backends" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="branches.html" class="btn btn-neutral float-right" title="Branches" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2010-2021 The pygit2 contributors.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

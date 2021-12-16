@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objects &mdash; pygit2 1.7.2 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Object IDs" href="oid.html" />
+    <link rel="prev" title="Merge &amp; Cherrypick" href="merge.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pygit2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blame.html">Blame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit_log.html">Commit log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diff.html">Diff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Feature detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_file.html">Index file &amp; Working copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mailmap.html">Mailmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">Merge &amp; Cherrypick</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#object-lookup">Object lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-object-base-type">The Object base type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blobs">Blobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-blobs">Creating blobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trees">Trees</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-trees">Creating trees</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commits">Commits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signatures">Signatures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-commits">Creating commits</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tags">Tags</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-tags">Creating tags</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oid.html">Object IDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packing.html">Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remotes.html">Remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository.html">Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revparse.html">Revision parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submodule.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worktree.html">Worktrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">The development version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygit2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Objects</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/objects.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="objects">
+<h1>Objects<a class="headerlink" href="#objects" title="永久链接至标题"></a></h1>
+<p>There are four types of Git objects: blobs, trees, commits and tags. For each
+one pygit2 has a type, and all four types inherit from the base <code class="docutils literal notranslate"><span class="pre">Object</span></code>
+type.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#object-lookup" id="id1">Object lookup</a></p></li>
+<li><p><a class="reference internal" href="#the-object-base-type" id="id2">The Object base type</a></p></li>
+<li><p><a class="reference internal" href="#blobs" id="id3">Blobs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-blobs" id="id4">Creating blobs</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#trees" id="id5">Trees</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-trees" id="id6">Creating trees</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#commits" id="id7">Commits</a></p>
+<ul>
+<li><p><a class="reference internal" href="#signatures" id="id8">Signatures</a></p></li>
+<li><p><a class="reference internal" href="#creating-commits" id="id9">Creating commits</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tags" id="id10">Tags</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-tags" id="id11">Creating tags</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="object-lookup">
+<h2><a class="toc-backref" href="#id1">Object lookup</a><a class="headerlink" href="#object-lookup" title="永久链接至标题"></a></h2>
+<p>In the previous chapter we learnt about Object IDs. With an Oid we can ask the
+repository to get the associated object. To do that the <code class="docutils literal notranslate"><span class="pre">Repository</span></code> class
+implementes a subset of the mapping interface.</p>
+</section>
+<section id="the-object-base-type">
+<h2><a class="toc-backref" href="#id2">The Object base type</a><a class="headerlink" href="#the-object-base-type" title="永久链接至标题"></a></h2>
+<p>The Object type is a base type, it is not possible to make instances of it, in
+any way.</p>
+<p>It is the base type of the <code class="docutils literal notranslate"><span class="pre">Blob</span></code>, <code class="docutils literal notranslate"><span class="pre">Tree</span></code>, <code class="docutils literal notranslate"><span class="pre">Commit</span></code> and <code class="docutils literal notranslate"><span class="pre">Tag</span></code> types, so
+it is possible to check whether a Python value is an Object or not:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygit2</span> <span class="kn">import</span> <span class="n">Object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">commit</span> <span class="o">=</span> <span class="n">repository</span><span class="o">.</span><span class="n">revparse_single</span><span class="p">(</span><span class="s1">&#39;HEAD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">commit</span><span class="p">,</span> <span class="n">Object</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>All Objects are immutable, they cannot be modified once they are created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">commit</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;foobar&quot;</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">AttributeError</span>: <span class="n">attribute &#39;message&#39; of &#39;_pygit2.Commit&#39; objects is not writable</span>
+</pre></div>
+</div>
+<p>Derived types (blobs, trees, etc.) don’t have a constructor, this means they
+cannot be created with the common idiom:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygit2</span> <span class="kn">import</span> <span class="n">Blob</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blob</span> <span class="o">=</span> <span class="n">Blob</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">cannot create &#39;_pygit2.Blob&#39; instances</span>
+</pre></div>
+</div>
+<p>New objects are created using an specific API we will see later.</p>
+<p>This is the common interface for all Git objects:</p>
+</section>
+<section id="blobs">
+<h2><a class="toc-backref" href="#id3">Blobs</a><a class="headerlink" href="#blobs" title="永久链接至标题"></a></h2>
+<p>A blob is just a raw byte string. They are the Git equivalent to files in
+a filesytem.</p>
+<p>This is their API:</p>
+<section id="creating-blobs">
+<h3><a class="toc-backref" href="#id4">Creating blobs</a><a class="headerlink" href="#creating-blobs" title="永久链接至标题"></a></h3>
+<p>There are a number of methods in the repository to create new blobs, and add
+them to the Git object database:</p>
+<p>There are also some functions to calculate the id for a byte string without
+creating the blob object:</p>
+</section>
+</section>
+<section id="trees">
+<h2><a class="toc-backref" href="#id5">Trees</a><a class="headerlink" href="#trees" title="永久链接至标题"></a></h2>
+<p>At the low level (libgit2) a tree is a sorted collection of tree entries. In
+pygit2 accessing an entry directly returns the object.</p>
+<p>A tree can be iterated, and partially implements the sequence and mapping
+interfaces.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">commit</span><span class="o">.</span><span class="n">tree</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>                        <span class="c1"># Number of entries</span>
+<span class="go">6</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">:</span>                 <span class="c1"># Iteration</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">type_str</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">7151ca7cd3e59f3eab19c485cfbf3cb30928d7fa blob .gitignore</span>
+<span class="go">c36f4cf1e38ec1bb9d9ad146ed572b89ecfc9f18 blob COPYING</span>
+<span class="go">32b30b90b062f66957d6790c3c155c289c34424e blob README.md</span>
+<span class="go">c87dae4094b3a6d10e08bc6c5ef1f55a7e448659 blob pygit2.c</span>
+<span class="go">85a67270a49ef16cdd3d328f06a3e4b459f09b27 blob setup.py</span>
+<span class="go">3d8985bbec338eb4d47c5b01b863ee89d044bd53 tree test</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">tree</span> <span class="o">/</span> <span class="s1">&#39;pygit2.c&#39;</span>          <span class="c1"># Get an object by name</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span>
+<span class="go">&lt;_pygit2.Blob at 0x7f08a70acc10&gt;</span>
+</pre></div>
+</div>
+<section id="creating-trees">
+<h3><a class="toc-backref" href="#id6">Creating trees</a><a class="headerlink" href="#creating-trees" title="永久链接至标题"></a></h3>
+</section>
+</section>
+<section id="commits">
+<h2><a class="toc-backref" href="#id7">Commits</a><a class="headerlink" href="#commits" title="永久链接至标题"></a></h2>
+<p>A commit is a snapshot of the working dir with meta informations like author,
+committer and others.</p>
+<section id="signatures">
+<h3><a class="toc-backref" href="#id8">Signatures</a><a class="headerlink" href="#signatures" title="永久链接至标题"></a></h3>
+<p>The author and committer attributes of commit objects are <code class="docutils literal notranslate"><span class="pre">Signature</span></code>
+objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">commit</span><span class="o">.</span><span class="n">author</span>
+<span class="go">&lt;pygit2.Signature object at 0x7f75e9b1f5f8&gt;</span>
+</pre></div>
+</div>
+<p>Signatures can be compared for (in)equality.</p>
+</section>
+<section id="creating-commits">
+<h3><a class="toc-backref" href="#id9">Creating commits</a><a class="headerlink" href="#creating-commits" title="永久链接至标题"></a></h3>
+<p>Commits can be created by calling the <code class="docutils literal notranslate"><span class="pre">create_commit</span></code> method of the
+repository with the following parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">author</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">(</span><span class="s1">&#39;Alice Author&#39;</span><span class="p">,</span> <span class="s1">&#39;alice@authors.tld&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">committer</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">(</span><span class="s1">&#39;Cecil Committer&#39;</span><span class="p">,</span> <span class="s1">&#39;cecil@committers.tld&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">TreeBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">repo</span><span class="o">.</span><span class="n">create_commit</span><span class="p">(</span>
+<span class="gp">... </span><span class="s1">&#39;refs/heads/master&#39;</span><span class="p">,</span> <span class="c1"># the name of the reference to update</span>
+<span class="gp">... </span><span class="n">author</span><span class="p">,</span> <span class="n">committer</span><span class="p">,</span> <span class="s1">&#39;one line commit message</span><span class="se">\n\n</span><span class="s1">detailed commit message&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">tree</span><span class="p">,</span> <span class="c1"># binary string representing the tree object ID</span>
+<span class="gp">... </span><span class="p">[]</span> <span class="c1"># list of binary strings representing parents of the new commit</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">&#39;#\xe4&lt;u\xfe\xd6\x17\xa0\xe6\xa2\x8b\xb6\xdc35$\xcf-\x8b~&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tags">
+<h2><a class="toc-backref" href="#id10">Tags</a><a class="headerlink" href="#tags" title="永久链接至标题"></a></h2>
+<p>A tag is a static label for a commit. See references for more information.</p>
+<section id="creating-tags">
+<h3><a class="toc-backref" href="#id11">Creating tags</a><a class="headerlink" href="#creating-tags" title="永久链接至标题"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="merge.html" class="btn btn-neutral float-left" title="Merge &amp; Cherrypick" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="oid.html" class="btn btn-neutral float-right" title="Object IDs" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2010-2021 The pygit2 contributors.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

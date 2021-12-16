@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>git-show &mdash; pygit2 1.7.2 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="git-tag" href="git-tag.html" />
+    <link rel="prev" title="git-log" href="git-log.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pygit2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../recipes.html">Recipes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../recipes.html#high-level-commands">High Level Commands</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../recipes.html#main-porcelain-commands">Main porcelain commands</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="git-cherry-pick.html">git-cherry-pick (Apply the changes introduced by some existing commits.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-init.html">git-init (Create an empty git repository or reinitialize an existing one.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-log.html">git-log (Show commit logs.)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">git-show (Show various types of objects.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-tag.html">git-tag (Create, list, delete or verify a tag object signed with GPG.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-clone-mirror.html">git clone --mirror (Clone with a mirroring configuration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-clone-ssh.html">git clone username&#64;hostname (Clone over ssh)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-add-reset.html">git-add / git-reset HEAD (Add file contents to the index / Unstage)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backends.html">Backends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blame.html">Blame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../branches.html">Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit_log.html">Commit log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diff.html">Diff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Feature detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_file.html">Index file &amp; Working copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mailmap.html">Mailmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../merge.html">Merge &amp; Cherrypick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../objects.html">Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oid.html">Object IDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packing.html">Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remotes.html">Remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../repository.html">Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../revparse.html">Revision parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submodule.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worktree.html">Worktrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">The development version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygit2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../recipes.html">Recipes</a> &raquo;</li>
+      <li>git-show</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/recipes/git-show.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="git-show">
+<h1>git-show<a class="headerlink" href="#git-show" title="永久链接至标题"></a></h1>
+<section id="showing-a-commit">
+<h2>Showing a commit<a class="headerlink" href="#showing-a-commit" title="永久链接至标题"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git show d370f56
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">repo</span> <span class="o">=</span> <span class="n">pygit2</span><span class="o">.</span><span class="n">Repository</span><span class="p">(</span><span class="s1">&#39;/path/to/repository&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">commit</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">revparse_single</span><span class="p">(</span><span class="s1">&#39;d370f56&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="show-log-message">
+<h3>Show log message<a class="headerlink" href="#show-log-message" title="永久链接至标题"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">message</span> <span class="o">=</span> <span class="n">commit</span><span class="o">.</span><span class="n">message</span>
+</pre></div>
+</div>
+</section>
+<section id="show-sha-hash">
+<h3>Show SHA hash<a class="headerlink" href="#show-sha-hash" title="永久链接至标题"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span> <span class="o">=</span> <span class="n">commit</span><span class="o">.</span><span class="n">hex</span>
+</pre></div>
+</div>
+</section>
+<section id="show-diff">
+<h3>Show diff<a class="headerlink" href="#show-diff" title="永久链接至标题"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">diff</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">commit</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">commit</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="show-all-files-in-commit">
+<h3>Show all files in commit<a class="headerlink" href="#show-all-files-in-commit" title="永久链接至标题"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">commit</span><span class="o">.</span><span class="n">tree</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="produce-something-like-a-git-show-message">
+<h3>Produce something like a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code> message<a class="headerlink" href="#produce-something-like-a-git-show-message" title="永久链接至标题"></a></h3>
+<p>Then you can make your message:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tzinfo</span>  <span class="o">=</span> <span class="n">timezone</span><span class="p">(</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">commit</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span>      <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">commit</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="n">tzinfo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">timestr</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%c</span><span class="s1"> %z&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span>     <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;commit </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">commit</span><span class="o">.</span><span class="n">tree_id</span><span class="o">.</span><span class="n">hex</span><span class="p">),</span>
+<span class="gp">... </span>                     <span class="s1">&#39;Author: </span><span class="si">{}</span><span class="s1"> &lt;</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">commit</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">commit</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">),</span>
+<span class="gp">... </span>                     <span class="s1">&#39;Date:   </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">timestr</span><span class="p">),</span>
+<span class="gp">... </span>                     <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">commit</span><span class="o">.</span><span class="n">message</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="永久链接至标题"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/pub/software/scm/git/docs/git-show.html">git-show</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="git-log.html" class="btn btn-neutral float-left" title="git-log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="git-tag.html" class="btn btn-neutral float-right" title="git-tag" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2010-2021 The pygit2 contributors.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

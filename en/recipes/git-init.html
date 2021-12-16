@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>git-init &mdash; pygit2 1.7.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="git-log" href="git-log.html" />
+    <link rel="prev" title="git-cherry-pick" href="git-cherry-pick.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pygit2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../recipes.html">Recipes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../recipes.html#high-level-commands">High Level Commands</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../recipes.html#main-porcelain-commands">Main porcelain commands</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="git-cherry-pick.html">git-cherry-pick (Apply the changes introduced by some existing commits.)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">git-init (Create an empty git repository or reinitialize an existing one.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-log.html">git-log (Show commit logs.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-show.html">git-show (Show various types of objects.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-tag.html">git-tag (Create, list, delete or verify a tag object signed with GPG.)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-clone-mirror.html">git clone --mirror (Clone with a mirroring configuration)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-clone-ssh.html">git clone username&#64;hostname (Clone over ssh)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git-add-reset.html">git-add / git-reset HEAD (Add file contents to the index / Unstage)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backends.html">Backends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blame.html">Blame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../branches.html">Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit_log.html">Commit log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diff.html">Diff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Feature detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_file.html">Index file &amp; Working copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mailmap.html">Mailmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../merge.html">Merge &amp; Cherrypick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../objects.html">Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oid.html">Object IDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packing.html">Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remotes.html">Remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../repository.html">Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../revparse.html">Revision parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submodule.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worktree.html">Worktrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">The development version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygit2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../recipes.html">Recipes</a> &raquo;</li>
+      <li>git-init</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/recipes/git-init.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="git-init">
+<h1>git-init<a class="headerlink" href="#git-init" title="Permalink to this headline"></a></h1>
+<section id="creating-a-new-repository">
+<h2>Creating a new repository<a class="headerlink" href="#creating-a-new-repository" title="Permalink to this headline"></a></h2>
+<section id="create-bare-repository">
+<h3>Create bare repository<a class="headerlink" href="#create-bare-repository" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git init --bare path/to/git
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pygit2</span><span class="o">.</span><span class="n">init_repository</span><span class="p">(</span><span class="s1">&#39;path/to/git&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="go">&lt;pygit2.repository.Repository object at 0x10f08b680&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="create-standard-repository">
+<h3>Create standard repository<a class="headerlink" href="#create-standard-repository" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git init path/to/git
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pygit2</span><span class="o">.</span><span class="n">init_repository</span><span class="p">(</span><span class="s1">&#39;path/to/git&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="go">&lt;pygit2.repository.Repository object at 0x10f08b680&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/pub/software/scm/git/docs/git-init.html">git-init</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="git-cherry-pick.html" class="btn btn-neutral float-left" title="git-cherry-pick" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="git-log.html" class="btn btn-neutral float-right" title="git-log" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2010-2021 The pygit2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object IDs &mdash; pygit2 1.7.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Packing" href="packing.html" />
+    <link rel="prev" title="Objects" href="objects.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pygit2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blame.html">Blame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit_log.html">Commit log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diff.html">Diff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Feature detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_file.html">Index file &amp; Working copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mailmap.html">Mailmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">Merge &amp; Cherrypick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Object IDs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-three-forms-of-an-object-id">The three forms of an object id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-oid-type">The Oid type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packing.html">Packing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remotes.html">Remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository.html">Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revparse.html">Revision parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submodule.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worktree.html">Worktrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">The development version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pygit2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Object IDs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/oid.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="object-ids">
+<h1>Object IDs<a class="headerlink" href="#object-ids" title="Permalink to this headline"></a></h1>
+<p>In the first place Git is a key-value storage system. The keys are called
+OIDs, for Object ID, and the  values stored are called Objects.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-three-forms-of-an-object-id" id="id1">The three forms of an object id</a></p></li>
+<li><p><a class="reference internal" href="#the-oid-type" id="id2">The Oid type</a></p></li>
+<li><p><a class="reference internal" href="#constants" id="id3">Constants</a></p></li>
+</ul>
+</div>
+<section id="the-three-forms-of-an-object-id">
+<h2><a class="toc-backref" href="#id1">The three forms of an object id</a><a class="headerlink" href="#the-three-forms-of-an-object-id" title="Permalink to this headline"></a></h2>
+<p>The oid is the <a class="reference external" href="http://en.wikipedia.org/wiki/SHA-1">SHA-1</a> hash of an
+object. It is 20 bytes long.</p>
+<p>These are the three forms of an oid in pygit2:</p>
+<dl>
+<dt>Raw oid</dt><dd><p>A raw oid is represented as a Python byte string of 20 bytes length.
+This form can only be used to create an Oid object.</p>
+</dd>
+<dt>Hex oid</dt><dd><p>A hex oid is represented as a Python string of 40 hexadecimal chars.  This
+form can be used to create Oid objects, just like raw oids. Also, the pygit2
+API directly accepts hex oids everywhere.</p>
+</dd>
+<dt>Oid object</dt><dd><p>An <code class="docutils literal notranslate"><span class="pre">Oid</span></code> object can be built from the raw or hexadecimal representations
+(see below). The pygit2 API always returns, and accepts, <code class="docutils literal notranslate"><span class="pre">Oid</span></code> objects.</p>
+<p>This is the preferred way to represent an Oid, with the hexadecimal form
+being used for interaction with the user.</p>
+</dd>
+</dl>
+</section>
+<section id="the-oid-type">
+<h2><a class="toc-backref" href="#id2">The Oid type</a><a class="headerlink" href="#the-oid-type" title="Permalink to this headline"></a></h2>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.pygit2.Oid">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">pygit2</span></span><span class="p"><span class="pre">.</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Oid</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">raw</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span>, <span class="n"><span class="pre">hex</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.pygit2.Oid" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The constructor expects either a raw or a hex oid, but not both.</p>
+<p>An Oid object is created from the hexadecimal form this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygit2</span> <span class="kn">import</span> <span class="n">Oid</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span> <span class="o">=</span> <span class="s2">&quot;cff3ceaefc955f0dbe1957017db181bc49913781&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oid1</span> <span class="o">=</span> <span class="n">Oid</span><span class="p">(</span><span class="nb">hex</span><span class="o">=</span><span class="nb">hex</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An Oid object is created from the raw form this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">binascii</span> <span class="kn">import</span> <span class="n">unhexlify</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygit2</span> <span class="kn">import</span> <span class="n">Oid</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raw</span> <span class="o">=</span> <span class="n">unhexlify</span><span class="p">(</span><span class="s2">&quot;cff3ceaefc955f0dbe1957017db181bc49913781&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oid2</span> <span class="o">=</span> <span class="n">Oid</span><span class="p">(</span><span class="n">raw</span><span class="o">=</span><span class="n">raw</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>And the other way around, from an Oid object we can get the hexadecimal and raw
+forms. You can use the built-in <cite>str()</cite> (or <cite>unicode()</cite> in python 2) to get the
+hexadecimal representation of the Oid.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Oid.__str__">
+<span class="sig-prename descclassname"><span class="pre">Oid.</span></span><span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Oid.__str__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>The Oid type supports:</p>
+<ul class="simple">
+<li><p>rich comparisons, not just for equality, also: lesser-than, lesser-or-equal,
+etc.</p></li>
+<li><p>hashing, so Oid objects can be used as keys in a dictionary.</p></li>
+</ul>
+</section>
+<section id="constants">
+<h2><a class="toc-backref" href="#id3">Constants</a><a class="headerlink" href="#constants" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_OID_RAWSZ">
+<span class="sig-name descname"><span class="pre">GIT_OID_RAWSZ</span></span><a class="headerlink" href="#GIT_OID_RAWSZ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_OID_HEXSZ">
+<span class="sig-name descname"><span class="pre">GIT_OID_HEXSZ</span></span><a class="headerlink" href="#GIT_OID_HEXSZ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_OID_HEX_ZERO">
+<span class="sig-name descname"><span class="pre">GIT_OID_HEX_ZERO</span></span><a class="headerlink" href="#GIT_OID_HEX_ZERO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="GIT_OID_MINPREFIXLEN">
+<span class="sig-name descname"><span class="pre">GIT_OID_MINPREFIXLEN</span></span><a class="headerlink" href="#GIT_OID_MINPREFIXLEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="objects.html" class="btn btn-neutral float-left" title="Objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="packing.html" class="btn btn-neutral float-right" title="Packing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2010-2021 The pygit2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
