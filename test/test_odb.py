@@ -45,7 +45,7 @@ BLOB_OID = Oid(raw=BLOB_RAW)
 def test_emptyodb():
     odb = Odb()
 
-    assert len([str(o) for o in odb]) == 0
+    assert not [str(o) for o in odb]
     assert BLOB_HEX not in odb
     path = os.path.join(os.path.dirname(__file__), 'data', 'testrepo.git', 'objects')
     odb.add_disk_alternate(path)
@@ -54,8 +54,7 @@ def test_emptyodb():
 
 @pytest.fixture
 def odb(barerepo):
-    odb = barerepo.odb
-    yield odb
+    yield barerepo.odb
 
 def test_iterable(odb):
     assert BLOB_HEX in [str(o) for o in odb]

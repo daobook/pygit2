@@ -278,13 +278,13 @@ class BaseRepository(_Repository):
             repo.create_reference('refs/tags/foo', 'refs/heads/master')
             repo.create_reference('refs/tags/foo', 'bbb78a9cec580')
         """
-        direct = (
+        if direct := (
             type(target) is Oid
             or (
                 all(c in hexdigits for c in target)
-                and GIT_OID_MINPREFIXLEN <= len(target) <= GIT_OID_HEXSZ))
-
-        if direct:
+                and GIT_OID_MINPREFIXLEN <= len(target) <= GIT_OID_HEXSZ
+            )
+        ):
             return self.create_reference_direct(name, target, force,
                                                 message=message)
 
@@ -460,7 +460,7 @@ class BaseRepository(_Repository):
             return None
 
         # If it's a string, then it has to be valid revspec
-        if isinstance(obj, str) or isinstance(obj, bytes):
+        if isinstance(obj, (str, bytes)):
             obj = self.revparse_single(obj)
         elif isinstance(obj, Oid):
             obj = self[obj]
@@ -543,18 +543,16 @@ class BaseRepository(_Repository):
         a = self.__whatever_to_tree_or_blob(a)
         b = self.__whatever_to_tree_or_blob(b)
 
-        opt_keys = ['flags', 'context_lines', 'interhunk_lines']
         opt_values = [flags, context_lines, interhunk_lines]
 
         # Case 1: Diff tree to tree
         if isinstance(a, Tree) and isinstance(b, Tree):
+            opt_keys = ['flags', 'context_lines', 'interhunk_lines']
             return a.diff_to_tree(b, **dict(zip(opt_keys, opt_values)))
 
-        # Case 2: Index to workdir
         elif a is None and b is None:
             return self.index.diff_to_workdir(*opt_values)
 
-        # Case 3: Diff tree to index or workdir
         elif isinstance(a, Tree) and b is None:
             if cached:
                 return a.diff_to_index(self.index, *opt_values)
@@ -1073,11 +1071,7 @@ class BaseRepository(_Repository):
             >>> repo.stash(repo.default_signature(), 'WIP: stashing')
         """
 
-        if message:
-            stash_msg = ffi.new('char[]', to_bytes(message))
-        else:
-            stash_msg = ffi.NULL
-
+        stash_msg = ffi.new('char[]', to_bytes(message)) if message else ffi.NULL
         flags = 0
         flags |= keep_index * C.GIT_STASH_KEEP_INDEX
         flags |= include_untracked * C.GIT_STASH_INCLUDE_UNTRACKED
@@ -1566,8 +1560,7 @@ class References:
             return None
 
     def __iter__(self):
-        for ref_name in self._repository.listall_references():
-            yield ref_name
+        yield from self._repository.listall_references()
 
     def create(self, name, target, force=False):
         return self._repository.create_reference(name, target, force)

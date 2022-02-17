@@ -35,8 +35,7 @@ def add_tag(repo, name, target):
     message = 'Example tag.\n'
     tagger = pygit2.Signature('John Doe', 'jdoe@example.com', 12347, 0)
 
-    sha = repo.create_tag(name, target, pygit2.GIT_OBJ_COMMIT, tagger, message)
-    return sha
+    return repo.create_tag(name, target, pygit2.GIT_OBJ_COMMIT, tagger, message)
 
 
 def test_describe(testrepo):

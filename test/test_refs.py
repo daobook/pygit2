@@ -83,7 +83,7 @@ def test_refs_set_sha(testrepo):
 def test_refs_set_sha_prefix(testrepo):
     NEW_COMMIT = '5ebeeebb320790caf276b9fc8b24546d63316533'
     reference = testrepo.references.get('refs/heads/master')
-    reference.set_target(NEW_COMMIT[0:6])
+    reference.set_target(NEW_COMMIT[:6])
     assert reference.target.hex == NEW_COMMIT
 
 def test_refs_get_type(testrepo):
@@ -226,10 +226,10 @@ def test_refs_equality(testrepo):
 
     assert ref1 is not ref2
     assert ref1 == ref2
-    assert not ref1 != ref2
+    assert ref1 == ref2
 
     assert ref1 != ref3
-    assert not ref1 == ref3
+    assert ref1 != ref3
 
 def test_refs_compress(testrepo):
     packed_refs_file = os.path.join(testrepo.path, 'packed-refs')
@@ -362,7 +362,7 @@ def test_reference_set_sha(testrepo):
 def test_reference_set_sha_prefix(testrepo):
     NEW_COMMIT = '5ebeeebb320790caf276b9fc8b24546d63316533'
     reference = testrepo.lookup_reference('refs/heads/master')
-    reference.set_target(NEW_COMMIT[0:6])
+    reference.set_target(NEW_COMMIT[:6])
     assert reference.target.hex == NEW_COMMIT
 
 def test_reference_get_type(testrepo):

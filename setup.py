@@ -59,10 +59,10 @@ class sdist_files_from_git(sdist):
             sys.exit()
 
         def exclude(line):
-            for prefix in ['.', 'appveyor.yml', 'docs/', 'misc/']:
-                if line.startswith(prefix):
-                    return True
-            return False
+            return any(
+                line.startswith(prefix)
+                for prefix in ['.', 'appveyor.yml', 'docs/', 'misc/']
+            )
 
         for line in stdoutdata.splitlines():
             if not exclude(line):

@@ -357,9 +357,7 @@ def _certificate_cb(cert_i, valid, host, data):
         if not val:
             return C.GIT_ECERTIFICATE
     except Passthrough:
-        if is_ssh:
-            return 0
-        elif valid:
+        if is_ssh or valid:
             return 0
         else:
             return C.GIT_ECERTIFICATE

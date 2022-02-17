@@ -58,7 +58,8 @@ def test_both():
 
 def test_long():
     with pytest.raises(ValueError): Oid(raw=RAW + b'a')
-    with pytest.raises(ValueError): Oid(hex=HEX + 'a')
+    with pytest.raises(ValueError):
+        Oid(hex=f'{HEX}a')
 
 def test_cmp():
     oid1 = Oid(raw=RAW)
@@ -74,13 +75,12 @@ def test_cmp():
     # Other
     assert oid1 < oid2
     assert oid1 <= oid2
-    assert not oid1 == oid2
+    assert oid1 != oid2
     assert not oid1 > oid2
     assert not oid1 >= oid2
 
 def test_hash():
-    s = set()
-    s.add(Oid(raw=RAW))
+    s = {Oid(raw=RAW)}
     s.add(Oid(hex=HEX))
     assert len(s) == 1
 

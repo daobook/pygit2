@@ -160,9 +160,7 @@ class Index:
         """
         coid = ffi.new('git_oid *')
 
-        repo = repo or self._repo
-
-        if repo:
+        if repo := repo or self._repo:
             err = C.git_index_write_tree_to(coid, self._index, repo._repo)
         else:
             err = C.git_index_write_tree(coid, self._index)

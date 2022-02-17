@@ -91,7 +91,7 @@ def test_blame_with_invalid_index(testrepo):
 def test_blame_for_line(testrepo):
     blame = testrepo.blame(PATH)
 
-    for i, line in zip(range(0, 2), range(1, 3)):
+    for i, line in zip(range(2), range(1, 3)):
         hunk = blame.for_line(line)
 
         assert hunk.lines_in_hunk == 1

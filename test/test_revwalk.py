@@ -78,7 +78,7 @@ def test_hide_prefix(testrepo):
 def test_reset(testrepo):
     walker = testrepo.walk(log[0], GIT_SORT_TIME)
     walker.reset()
-    assert [x.hex for x in walker] == []
+    assert not [x.hex for x in walker]
 
 def test_push(testrepo):
     walker = testrepo.walk(log[-1], GIT_SORT_TIME)
@@ -99,8 +99,8 @@ def test_simplify_first_parent(testrepo):
 
 def test_default_sorting(testrepo):
     walker = testrepo.walk(log[0], GIT_SORT_NONE)
-    list1 = list([x.id for x in walker])
+    list1 = [x.id for x in walker]
     walker = testrepo.walk(log[0])
-    list2 = list([x.id for x in walker])
+    list2 = [x.id for x in walker]
 
     assert list1 == list2

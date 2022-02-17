@@ -99,7 +99,7 @@ def test_contains(barerepo):
     assert ('a' * 20) not in barerepo
 
 def test_iterable(barerepo):
-    l = [obj for obj in barerepo]
+    l = list(barerepo)
     oid = pygit2.Oid(hex=BLOB_HEX)
     assert oid in l
 
