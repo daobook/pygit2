@@ -157,7 +157,7 @@ def test_iter(testrepo):
 
     # Compare SHAs, not IndexEntry object identity
     entries = [index[x].hex for x in range(n)]
-    assert list(x.hex for x in index) == entries
+    assert [x.hex for x in index] == entries
 
 def test_mode(testrepo):
     """

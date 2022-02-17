@@ -171,11 +171,7 @@ class Remote:
         results = []
         for i in range(int(refs_len[0])):
             local = bool(refs[0][i].local)
-            if local:
-                loid = Oid(raw=bytes(ffi.buffer(refs[0][i].loid.id)[:]))
-            else:
-                loid = None
-
+            loid = Oid(raw=bytes(ffi.buffer(refs[0][i].loid.id)[:])) if local else None
             remote = {
                 "local": local,
                 "loid": loid,
@@ -351,9 +347,6 @@ class RemoteCollection:
 
         if not new_name:
             raise ValueError("Current remote name must be a non-empty string")
-
-        if not new_name:
-            raise ValueError("New remote name must be a non-empty string")
 
         problems = ffi.new('git_strarray *')
         err = C.git_remote_rename(problems, self._repo._repo, to_bytes(name), to_bytes(new_name))

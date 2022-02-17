@@ -47,7 +47,7 @@ def test_equality(testrepo):
 
     assert commit_a is not commit_b
     assert commit_a == commit_b
-    assert not(commit_a != commit_b)
+    assert commit_a == commit_b
 
 def test_hashing(testrepo):
     # get a commit object twice and compare hashes
@@ -64,15 +64,12 @@ def test_hashing(testrepo):
     assert hash(commit_a) == hash(commit_b)
 
     # sanity check that python container types work as expected
-    s = set()
-    s.add(commit_a)
-    s.add(commit_b)
+    s = {commit_a, commit_b}
     assert len(s) == 1
     assert commit_a in s
     assert commit_b in s
 
-    d = {}
-    d[commit_a] = True
+    d = {commit_a: True}
     assert commit_b in d
     assert d[commit_b]
 
@@ -114,9 +111,8 @@ def test_short_id(testrepo):
     seen = {} # from short_id to full hex id
     def test_obj(obj, msg):
         short_id = obj.short_id
-        msg = msg+" short_id="+short_id
-        already = seen.get(short_id)
-        if already:
+        msg = f'{msg} short_id={short_id}'
+        if already := seen.get(short_id):
             assert already == obj.id.hex
         else:
             seen[short_id] = obj.id.hex

@@ -250,7 +250,7 @@ def test_diff_patch(barerepo):
 
     diff = commit_a.tree.diff_to_tree(commit_b.tree)
     assert diff.patch == PATCH
-    assert len(diff) == len([patch for patch in diff])
+    assert len(diff) == len(list(diff))
 
 def test_diff_ids(barerepo):
     commit_a = barerepo[COMMIT_SHA1_1]

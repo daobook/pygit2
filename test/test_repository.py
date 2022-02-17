@@ -132,7 +132,7 @@ def test_checkout_alternative_dir(testrepo):
     os.mkdir(extra_dir)
     assert len(os.listdir(extra_dir)) == 0
     testrepo.checkout(ref_i18n, directory=extra_dir)
-    assert not len(os.listdir(extra_dir)) == 0
+    assert len(os.listdir(extra_dir)) != 0
 
 def test_checkout_paths(testrepo):
     ref_i18n = testrepo.lookup_reference('refs/heads/i18n')
